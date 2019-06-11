@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Draw a blue rectangle (canvas version)</title>
+    </head>
+    <body onload="main()">
+        <canvas id="example" width="400" height="400" onclick="change()">
+            Pleause use a browser that supports "canvas"
+        </canvas>
+    </body>
+
+    <script type="text/javascript">
+        var current = 0;
+        var styles = ['rgba(0, 0, 255, 1.0)', 'rgba(255, 0, 0, 1.0)', 'rgba(0, 255, 0, 1.0)']
+        var ctx;
+        function main() {
+            var canvas = document.getElementById("example");
+            ctx = canvas.getContext("2d");
+            ctx.fillStyle = styles[current];
+            ctx.fillRect(120, 10, 150, 150);
+        }
+
+        function change() {
+               if (current <= 1) {
+                   current += 1;
+               }  else {
+                   current = 0;
+               }
+               ctx.fillStyle = styles[current];
+               ctx.fillRect(120, 10, 150, 150); 
+        }
+    </script>
+</html>
